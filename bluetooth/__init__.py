@@ -177,7 +177,7 @@ stop_advertising.__doc__ = \
     BluetoothError
         When SDP fails to stop advertising for some reason.
 
-    """ 
+    """  
 
 find_service.__doc__ = \
     """Use to find available Bluetooth services.
@@ -250,7 +250,6 @@ find_service.__doc__ = \
         =============== ===========================================================
 
     """
-
 BluetoothSocket.__doc__ = \
     """ A Bluetooth Socket representing one endpoint of a Bluetooth connection.
 
@@ -274,7 +273,6 @@ BluetoothSocket.dup.__doc__ =\
         A new :class:`BluetoothSocket` connected to the same system resource.
         
     """
-
 BluetoothSocket.accept.__doc__ = \
     """Accept a connection.
 
@@ -289,7 +287,6 @@ BluetoothSocket.accept.__doc__ = \
         When an attempt to accept a connection fails.
     
     """
-
 BluetoothSocket.bind.__doc__ = \
     """Bind the socket to a local address and port.
 
@@ -305,23 +302,106 @@ BluetoothSocket.bind.__doc__ = \
 
     """
 
-#BluetoothSocket.get_l2cap_options.__doc__ =\
-#    """Get the L2CAP options for the specified L2CAP socket.
+BluetoothSocket.get_l2cap_options.__doc__ =\
+    """Get the L2CAP options for the specified L2CAP socket.
 
-#    Options are: omtu, imtu, flush_to, mode, fcs, max_tx, txwin_size.
+    Options are: omtu, imtu, flush_to, mode, fcs, max_tx, txwin_size.
+        
+    Returns
+    -------
+    list
+        A list of L2CAP options available for the socket.
 
-#    Returns
-#    -------
-#    list
-#        A list of L2CAP options available for the socket.
-
-#    """
-
+    """
 BluetoothError.__doc__ = \
     """Raised when a bluetooth function or method fails for a Bluetooth I/O
     related reason.
 
     """
+BluetoothSocket.close.__doc__ = \
+    """Close a the socket.
+    
+    Raises
+    ------
+    BluetoothError
+        When an attempt to close the socket fails.
+    
+    """
+BluetoothSocket.connect.__doc__ = \
+    """Connect to a socket at the specified addrport.
+    
+    Parameters
+    ----------
+    addrport : tuple
+        A tuple of the form (address str, port int)
 
-""" Documentation for the remaining methods of the class can be found in the file bluez/btmodule.c in the function definitions. """
+    Raises
+    ------
+    BluetoothError
+        When an attempt to connect to the socket fails.
+    
+    """
+BluetoothSockect.connect_ex.__doc__ = \
+    """Connect to the specified addrport, but returns an error code (the errno value) instead of raising an exception when an error occurs.
+    
+    Parameters
+    ----------
+    addrport : tuple
+        A tuple of the form (address str, port int).
+    
+    Returns 
+    -------
+    int
+        Zero if no error occurs, else the error code.
+    
+    """
+BluetoothSocket.family.__doc__ = \
+    """AddressFamily of the socket.
+    
+    Returns 
+    -------
+    int 
+        AddressFamily of the socket ( Always 31 for bluetooth) .
+    
+    Raises
+    ------
+    BluetoothError
+        When an attempt to get the AddressFamily to the socket fails.
 
+    """
+BluetoothSocket.fileno.__doc__ = \
+    """File Descriptor of the socket.
+    
+    Returns
+    -------
+    int
+        Returns Integer File Descriptor of the socket.
+    
+    Raises
+    ------
+    BluetoothError
+        When an attempt to get the file descriptor of the socket fails.
+
+    """
+BluetoothSocket.proto.__doc__ = \
+    """The protocol associated with the socket
+	========== ==============
+	Protocol   Return Value
+	========== ==============
+	L2CAP         0
+	HCI           1
+	SCO           2
+	RFCOMM        3
+	========== ==============
+    
+    Returns
+    -------
+    int
+        Returns the protocol associated with the socket.
+    
+    Raises
+    ------
+    BluetoothError
+        When an attempt to get the protocol of the socket fails.
+    
+    """
